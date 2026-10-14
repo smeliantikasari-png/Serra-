@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+import '../screens/camera_screen.dart';
+
+class CameraButton extends StatelessWidget {
+  final String productImage;
+  const CameraButton({super.key, required this.productImage});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xFF2D5A8A),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => CameraScreen(productImage: productImage)),
+        );
+      },
+      icon: Icon(Icons.view_in_ar, color: Colors.white),
+      label: Text("Lihat di Ruanganmu", style: TextStyle(color: Colors.white)),
+    );
+  }
+}
